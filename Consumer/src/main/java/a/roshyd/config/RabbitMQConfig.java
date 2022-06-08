@@ -23,9 +23,6 @@ public class RabbitMQConfig {
     @Value("${spring.rabbitmq.password}")
     private String password;
 
-    @Value("${spring.rabbitmq.queue}")
-    private Queue queue;
-
     @Bean
     CachingConnectionFactory connectionFactory(){
         CachingConnectionFactory cachingConnectionFactory=new CachingConnectionFactory(host);
