@@ -1,6 +1,6 @@
 package a.roshyd.service;
 
-import a.roshyd.domain.User;
+import a.roshyd.domain.UserDto;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.amqp.rabbit.annotation.RabbitListener;
@@ -21,8 +21,8 @@ public class RabbitMQListener implements RabbitListenerConfigurer {
     }
 
     @RabbitListener(queues = "${spring.rabbitmq.queue}")
-    public void receivedMessage(User user){
-        System.out.println(user.getUsername());
-        logger.info("User Details: "+ user);
+    public void receivedMessage(UserDto userDto){
+        System.out.println(userDto.getUsername());
+        logger.info("User Details: "+ userDto);
     }
 }
